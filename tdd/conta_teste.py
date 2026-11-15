@@ -1,4 +1,4 @@
-from conta import Conta, deposito()
+from conta import Conta, deposito
 
 def teste_conta_deve_ter_saldo_zero():
     conta_nova = Conta()
@@ -18,7 +18,10 @@ def teste_conta_deve_realizar_deposito_POSITIVO():
     '''
     quantia > 0 happy path
     '''
+
     quantia = 100
     resposta_esperada = "DEPÓSITO REALIZADO COM SUCESSO"
-    reposta_real = deposito(quantia)
-    
+    resposta_real = deposito(quantia)
+
+    assert resposta_esperada == resposta_real 
+
