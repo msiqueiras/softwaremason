@@ -10,6 +10,6 @@ def teste_conta_deve_ter_saldo_zero():
 def teste_conta_deve_ter_extrato_vazio():
     conta_nova = Conta()
     extrato_esperado = []
-    resultado_extrato = conta_nova.extrato()
+    resultado_extrato = conta_nova.extrato
 
     assert extrato_esperado == resultado_extrato

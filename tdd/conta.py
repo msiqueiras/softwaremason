@@ -1,3 +1,4 @@
 class Conta:
     def __init__(self):
-        pass
+        self.saldo = 0
+        self.extrato = []
