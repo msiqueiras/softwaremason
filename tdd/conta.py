@@ -15,4 +15,8 @@ class Conta:
         self.saldo += quantia
         self.extrato.append(["DEPÓSITO", quantia, self.saldo])
         return "DEPÓSITO REALIZADO COM SUCESSO"
-    
+
+    def saque(self, quantia: int):
+        self.saldo -= quantia
+        self.extrato.append(["SAQUE", quantia, self.saldo])
+        return "SAQUE FEITO COM SUCESSO"
