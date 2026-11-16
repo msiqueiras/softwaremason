@@ -28,7 +28,7 @@ def teste_conta_deve_realizar_deposito_POSITIVO():
 # def teste_conta_deve_realizar_deposito_invalido():
 #     conta_nova = Conta()
 #     quantia = -100
-#     resposta_esperada = "VALOR DE QUANTIA PRECISA SER POSITIVO"
+#     resposta_esperada = "VALOR DE QUANTIA DE DEPÓSITO PRECISA SER POSITIVO"
 #     resposta_real = conta_nova.deposito(quantia)
 
 #     assert resposta_esperada == resposta_real
@@ -36,18 +36,52 @@ def teste_conta_deve_realizar_deposito_POSITIVO():
 def teste_conta_deposito_com_quantia_nao_inteira():
     conta_nova = Conta()
     quantia = 150.40 #caso não fosse um número, o python vai reclamar na função
-    resposta_esperada = "VALOR DE QUANTIA PRECISA SER INTEIRO"
+    resposta_esperada = "VALOR DE QUANTIA DE DEPÓSITO PRECISA SER INTEIRO"
     resposta_real = conta_nova.deposito(quantia)
 
     assert resposta_esperada == resposta_real
 
 
-def teste_conta_saque(): #mesmas regras de depósito.
+# def teste_conta_saque(): #mesmas regras de depósito.
+#     conta_nova = Conta()
+#     quantia = 100
+#     resposta_esperada = "SAQUE FEITO COM SUCESSO"
+#     resposta_real = conta_nova.saque(quantia)
+
+#     assert resposta_esperada == resposta_real
+
+
+def teste_conta_saque_com_saldo_insuficiente():
     conta_nova = Conta()
-    quantia = 100
-    resposta_esperada = "SAQUE FEITO COM SUCESSO"
-    resposta_real = conta_nova.saque(quantia)
+    quantia_deposito = 100
+    conta_nova.deposito(quantia_deposito)
 
-    assert resposta_esperada == resposta_real
+    quantia_saque = 150
+    resposta_esperada = "SALDO DA CONTA INSUFICIENTE PARA SAQUE"
+    resposta_real = conta_nova.saque(quantia_saque)
 
-    
+    assert resposta_real == resposta_esperada
+
+
+def teste_conta_saque_com_quantia_negativa():
+    conta_nova = Conta()
+    quantia_deposito = 100
+    conta_nova.deposito(quantia_deposito)
+
+    quantia_saque = -10
+    resposta_esperada = "VALOR DE QUANTIA PARA SAQUE PRECISA SER POSITIVO"
+    resposta_real = conta_nova.saque(quantia_saque)
+
+    assert resposta_real == resposta_esperada
+
+
+def teste_conta_saque_com_quantia_nao_inteira():
+    conta_nova = Conta()
+    quantia_deposito = 100
+    conta_nova.deposito(quantia_deposito)
+
+    quantia_saque = 10.2
+    resposta_esperada = "VALOR DE QUANTIA PARA SAQUE PRECISA SER INTEIRO"
+    resposta_real = conta_nova.saque(quantia_saque)
+
+    assert resposta_real == resposta_esperada
