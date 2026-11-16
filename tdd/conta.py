@@ -4,6 +4,9 @@ class Conta:
         self.extrato = []
 
     def deposito(self, quantia: int):
+        if quantia <= 0:
+            return "VALOR DE QUANTIA PRECISA SER POSITIVO"
+
         self.saldo += quantia
         return "DEPÓSITO REALIZADO COM SUCESSO"
     
