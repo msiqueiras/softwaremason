@@ -35,7 +35,7 @@ def teste_conta_deve_realizar_deposito_POSITIVO():
 
 def teste_conta_deposito_com_quantia_nao_inteira():
     conta_nova = Conta()
-    quantia = 150.40 #caso não fosse um número, o python vai reclamar na função
+    quantia = 150.40 
     resposta_esperada = "VALOR DE QUANTIA DE DEPÓSITO PRECISA SER INTEIRO"
     resposta_real = conta_nova.deposito(quantia)
 
@@ -69,7 +69,7 @@ def teste_conta_saque_com_quantia_negativa():
     conta_nova.deposito(quantia_deposito)
 
     quantia_saque = -10
-    resposta_esperada = "VALOR DE QUANTIA PARA SAQUE PRECISA SER POSITIVO"
+    resposta_esperada = "VALOR DE QUANTIA DE SAQUE PRECISA SER POSITIVO"
     resposta_real = conta_nova.saque(quantia_saque)
 
     assert resposta_real == resposta_esperada
@@ -81,7 +81,24 @@ def teste_conta_saque_com_quantia_nao_inteira():
     conta_nova.deposito(quantia_deposito)
 
     quantia_saque = 10.2
-    resposta_esperada = "VALOR DE QUANTIA PARA SAQUE PRECISA SER INTEIRO"
+    resposta_esperada = "VALOR DE QUANTIA DE SAQUE PRECISA SER INTEIRO"
     resposta_real = conta_nova.saque(quantia_saque)
 
     assert resposta_real == resposta_esperada
+
+
+def teste_conta_acesso_historico():
+    conta_nova = Conta()
+    quantia_deposito = 100
+    conta_nova.deposito(quantia_deposito)
+
+    quantia_saque = 50
+    conta_nova.saque(quantia_saque)
+
+    historico_esperado = [
+        ["DEPÓSITO", 100, 100],
+        ["SAQUE", 50, 50]
+    ]
+    historico_real = conta_nova.getEntradas()
+
+    assert historico_real == historico_esperado

@@ -127,3 +127,31 @@ tdd/conta_teste.py:49: AttributeError
 FAILED tdd/conta_teste.py::teste_conta_saque - AttributeError: 'Conta' object has no attribute 'saque'
 ==================================== 1 failed, 4 passed in 0.05s ====================================
 ```
+
+## Ciclo 4 - Ledger
+
+Método getEntradas não existe:
+
+```bash
+
+============================================= FAILURES ==============================================
+___________________________________ teste_conta_acesso_historico ____________________________________
+
+    def teste_conta_acesso_historico():
+        conta_nova = Conta()
+        quantia_deposito = 100
+        conta_nova.deposito(quantia_deposito)
+    
+        quantia_saque = 50
+        conta_nova.saque(quantia_saque)
+    
+        historico_esperado = [["DEPÓSITO", quantia_deposito, conta_nova.saldo], ["SAQUE", quantia_saque, conta_nova.saldo]]
+>       historico_real = conta_nova.getEntradas()
+                         ^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'Conta' object has no attribute 'getEntradas'
+
+tdd/conta_teste.py:99: AttributeError
+====================================== short test summary info ======================================
+FAILED tdd/conta_teste.py::teste_conta_acesso_historico - AttributeError: 'Conta' object has no attribute 'getEntradas'
+==================================== 1 failed, 7 passed in 0.06s ====================================
+```
