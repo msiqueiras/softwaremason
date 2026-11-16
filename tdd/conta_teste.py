@@ -42,3 +42,12 @@ def teste_conta_deposito_com_quantia_nao_inteira():
     assert resposta_esperada == resposta_real
 
 
+def teste_conta_saque(): #mesmas regras de depósito.
+    conta_nova = Conta()
+    quantia = 100
+    resposta_esperada = "SAQUE FEITO COM SUCESSO"
+    resposta_real = conta_nova.saque(quantia)
+
+    assert resposta_esperada == resposta_real
+
+    
