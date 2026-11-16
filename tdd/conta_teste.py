@@ -25,3 +25,20 @@ def teste_conta_deve_realizar_deposito_POSITIVO():
 
     assert resposta_esperada == resposta_real 
 
+# def teste_conta_deve_realizar_deposito_invalido():
+#     conta_nova = Conta()
+#     quantia = -100
+#     resposta_esperada = "VALOR DE QUANTIA PRECISA SER POSITIVO"
+#     resposta_real = conta_nova.deposito(quantia)
+
+#     assert resposta_esperada == resposta_real
+
+def teste_conta_deposito_com_quantia_nao_inteira():
+    conta_nova = Conta()
+    quantia = 150.40 #caso não fosse um número, o python vai reclamar na função
+    resposta_esperada = "VALOR DE QUANTIA PRECISA SER INTEIRO"
+    resposta_real = conta_nova.deposito(quantia)
+
+    assert resposta_esperada == resposta_real
+
+
